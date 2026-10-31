@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convert Image Format Free — PNG to JPG, WebP Converter | ImageCraft</title>
+<meta name="description" content="Convert images between PNG, JPG, WebP and BMP for free. Batch convert up to 20 images. Runs in your browser — no upload needed.">
+<meta name="keywords" content="png to jpg converter, jpg to png, convert image format, webp to jpg, png to webp, image converter online free, batch image converter">
+<link rel="canonical" href="https://nxtcraft.github.io/imagecraft/convert/">
+<meta property="og:title" content="Free Image Format Converter — PNG JPG WebP BMP">
+<meta property="og:type" content="website">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',sans-serif;background:#faf5ff;color:#1e1b4b;min-height:100vh}
+nav{background:#fff;border-bottom:1px solid #ede9fe;padding:0 20px;height:54px;display:flex;align-items:center;gap:12px}
+.logo{font-size:18px;font-weight:800;color:#1e1b4b;text-decoration:none}.logo span{color:#7c3aed}
+.breadcrumb{font-size:12px;color:#7c3aed}
+.container{max-width:840px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:24px;font-weight:800;margin-bottom:6px}
+.subtitle{font-size:14px;color:#6b7280;margin-bottom:24px}
+.upload-zone{border:2.5px dashed #c4b5fd;border-radius:18px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;margin-bottom:20px}
+.upload-zone:hover,.upload-zone.drag{border-color:#7c3aed;background:#f5f3ff}
+.up-icon{font-size:44px;margin-bottom:12px}
+.up-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.up-sub{font-size:13px;color:#9ca3af}
+#file-input{display:none}
+.upload-btn{display:inline-block;margin-top:14px;background:#7c3aed;color:#fff;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.card{background:#fff;border-radius:14px;border:1.5px solid #ede9fe;padding:20px 22px;margin-bottom:16px}
+.card-title{font-size:13px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.fmt-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.fmt-row label{font-size:14px;font-weight:600}
+.fmt-select{padding:8px 14px;border:1.5px solid #ede9fe;border-radius:8px;font-size:14px;font-weight:600;color:#1e1b4b;background:#fff;cursor:pointer}
+.fmt-select:focus{outline:none;border-color:#7c3aed}
+.bg-row{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:600}
+.bg-row input[type=color]{width:36px;height:36px;border:none;cursor:pointer;border-radius:6px;padding:2px}
+.file-list{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.file-item{background:#fff;border:1.5px solid #ede9fe;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:14px}
+.file-thumb{width:52px;height:52px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.file-info{flex:1}
+.file-name{font-size:13px;font-weight:600;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:300px}
+.file-size{font-size:12px;color:#9ca3af}
+.dl-link{background:#f3f0ff;color:#7c3aed;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;border:none;cursor:pointer;white-space:nowrap}
+.dl-link:hover{background:#ede9fe}
+.status-badge{font-size:11px;padding:3px 9px;border-radius:10px;font-weight:600}
+.status-badge.done{background:#f0fdf4;color:#16a34a}
+.status-badge.processing{background:#fef3c7;color:#d97706}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-dl-all{background:#7c3aed;color:#fff;padding:12px 26px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer}
+.btn-dl-all:hover{background:#6d28d9}
+.btn-clear{background:#f3f0ff;color:#7c3aed;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer}
+footer{text-align:center;padding:20px;font-size:12px;color:#7c3aed;border-top:1px solid #ede9fe;margin-top:40px}
+footer a{color:#7c3aed;text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="../">Image<span>Craft</span></a>
+  <span class="breadcrumb">› Format Converter</span>
+</nav>
+
+<div class="container">
+  <h1>Image Format Converter — Free</h1>
+  <p class="subtitle">Convert PNG ↔ JPG ↔ WebP ↔ BMP. Batch up to 20 images. Runs in your browser.</p>
+
+  <div class="upload-zone" id="drop-zone">
+    <div class="up-icon">🔄</div>
+    <div class="up-title">Drop images here (up to 20)</div>
+    <div class="up-sub">PNG, JPG, WebP, BMP, GIF</div>
+    <button class="upload-btn" onclick="document.getElementById('file-input').click()">Choose Images</button>
+  </div>
+  <input type="file" id="file-input" accept="image/*" multiple>
+
+  <div id="controls" style="display:none">
+    <div class="card">
+      <div class="card-title">Convert To</div>
+      <div class="fmt-row">
+        <label>Output format:</label>
+        <select class="fmt-select" id="out-fmt" onchange="reconvert()">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+      </div>
+      <div class="bg-row" id="bg-row">
+        <label>Background color (for transparent → JPG):</label>
+        <input type="color" id="bg-color" value="#ffffff" onchange="reconvert()">
+      </div>
+    </div>
+
+    <div class="file-list" id="file-list"></div>
+
+    <div class="actions">
+      <button class="btn-dl-all" id="dl-all-btn" onclick="downloadAll()">⬇ Download All</button>
+      <button class="btn-clear" onclick="reset()">Convert more</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="../">← All ImageCraft Tools</a> · <a href="https://nxtcraft.github.io/">NxtCraft</a>
+</footer>
+
+<script>
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const controls = document.getElementById('controls');
+const fileList = document.getElementById('file-list');
+let convertedItems = [];
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag'); handleFiles([...e.dataTransfer.files]); });
+fileInput.addEventListener('change', () => handleFiles([...fileInput.files]));
+
+function handleFiles(files) {
+  files = files.filter(f => f.type.startsWith('image/')).slice(0, 20);
+  if (!files.length) return;
+  dropZone.style.display = 'none'; controls.style.display = '';
+  fileList.innerHTML = '';
+  convertedItems = [];
+  files.forEach((file, i) => processFile(file, i));
+}
+
+function processFile(file, idx) {
+  const item = { file, dataUrl: '', ext: '' };
+  convertedItems.push(item);
+  const row = document.createElement('div');
+  row.className = 'file-item';
+  row.id = `row-${idx}`;
+  row.innerHTML = `<img class="file-thumb" src="" alt=""><div class="file-info"><div class="file-name">${file.name}</div><div class="file-size">${fmtSize(file.size)}</div></div><span class="status-badge processing" id="badge-${idx}">Processing…</span><a class="dl-link" id="dl-${idx}" style="display:none">Download</a>`;
+  fileList.appendChild(row);
+  const img = new Image();
+  img.onload = () => {
+    row.querySelector('.file-thumb').src = img.src;
+    convert(img, item, idx);
+  };
+  img.src = URL.createObjectURL(file);
+  item._img = img;
+}
+
+function convert(img, item, idx) {
+  const fmt = document.getElementById('out-fmt').value;
+  const bg = document.getElementById('bg-color').value;
+  const canvas = document.createElement('canvas');
+  canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+  const ctx = canvas.getContext('2d');
+  if (fmt === 'image/jpeg') { ctx.fillStyle = bg; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+  ctx.drawImage(img, 0, 0);
+  const ext = fmt === 'image/jpeg' ? 'jpg' : fmt === 'image/webp' ? 'webp' : 'png';
+  item.dataUrl = canvas.toDataURL(fmt, 0.9);
+  item.ext = ext;
+  const badge = document.getElementById(`badge-${idx}`);
+  const dlLink = document.getElementById(`dl-${idx}`);
+  badge.textContent = '✓ Done';
+  badge.className = 'status-badge done';
+  dlLink.style.display = '';
+  dlLink.href = item.dataUrl;
+  dlLink.download = item.file.name.replace(/\.[^.]+$/, '') + '.' + ext;
+}
+
+function reconvert() {
+  const fmt = document.getElementById('out-fmt').value;
+  document.getElementById('bg-row').style.display = fmt === 'image/jpeg' ? '' : 'none';
+  convertedItems.forEach((item, i) => { if (item._img) convert(item._img, item, i); });
+}
+
+function downloadAll() {
+  convertedItems.forEach(item => {
+    if (!item.dataUrl) return;
+    const a = document.createElement('a');
+    a.href = item.dataUrl;
+    a.download = item.file.name.replace(/\.[^.]+$/, '') + '.' + item.ext;
+    a.click();
+  });
+}
+
+function fmtSize(b) {
+  if (b < 1024) return b + ' B';
+  if (b < 1048576) return (b/1024).toFixed(1) + ' KB';
+  return (b/1048576).toFixed(2) + ' MB';
+}
+
+function reset() {
+  controls.style.display = 'none'; dropZone.style.display = ''; fileInput.value = ''; convertedItems = [];
+}
+</script>
+</body>
+</html>

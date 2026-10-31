@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remove Image Background Free — AI Background Remover | ImageCraft</title>
+<meta name="description" content="Remove background from any image free online. AI-powered, runs in your browser — no upload to server, no signup. Export as transparent PNG instantly.">
+<meta name="keywords" content="remove background free, background remover online, remove bg free, transparent background, background hatao, image background remove, photo background remove online free">
+<link rel="canonical" href="https://nxtcraft.github.io/imagecraft/bg-remove/">
+<meta property="og:title" content="Free Background Remover — No Signup, No Upload">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',sans-serif;background:#faf5ff;color:#1e1b4b;min-height:100vh}
+nav{background:#fff;border-bottom:1px solid #ede9fe;padding:0 20px;height:54px;display:flex;align-items:center;gap:12px}
+.logo{font-size:18px;font-weight:800;color:#1e1b4b;text-decoration:none}.logo span{color:#7c3aed}
+.breadcrumb{font-size:12px;color:#7c3aed}
+.container{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:24px;font-weight:800;margin-bottom:6px}
+.subtitle{font-size:14px;color:#6b7280;margin-bottom:24px}
+.upload-zone{border:2.5px dashed #c4b5fd;border-radius:18px;padding:52px 24px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;margin-bottom:24px}
+.upload-zone:hover,.upload-zone.drag{border-color:#7c3aed;background:#f5f3ff}
+.upload-zone.has-file{border-style:solid;border-color:#7c3aed;padding:20px}
+.up-icon{font-size:48px;margin-bottom:12px}
+.up-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.up-sub{font-size:13px;color:#9ca3af}
+#file-input{display:none}
+.upload-btn{display:inline-block;margin-top:14px;background:#7c3aed;color:#fff;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.upload-btn:hover{background:#6d28d9}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+@media(max-width:600px){.result-grid{grid-template-columns:1fr}}
+.img-panel{background:#fff;border-radius:14px;overflow:hidden;border:1.5px solid #ede9fe}
+.panel-label{font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;padding:10px 14px;border-bottom:1px solid #f3f0ff}
+.img-wrap{padding:12px;min-height:220px;display:flex;align-items:center;justify-content:center;position:relative}
+.img-wrap.checkerboard{background-image:linear-gradient(45deg,#e5e7eb 25%,transparent 25%),linear-gradient(-45deg,#e5e7eb 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e5e7eb 75%),linear-gradient(-45deg,transparent 75%,#e5e7eb 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0}
+.img-wrap img{max-width:100%;max-height:360px;border-radius:8px;object-fit:contain}
+.status-bar{background:#fff;border:1.5px solid #ede9fe;border-radius:12px;padding:14px 18px;margin-bottom:16px;display:none}
+.status-bar.show{display:flex;align-items:center;gap:12px}
+.spinner{width:20px;height:20px;border:2.5px solid #ede9fe;border-top-color:#7c3aed;border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.status-text{font-size:14px;font-weight:600;color:#6d28d9}
+.progress-bar{height:4px;background:#ede9fe;border-radius:4px;margin-top:6px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#7c3aed,#a855f7);border-radius:4px;transition:width .3s;width:0%}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-dl{background:#7c3aed;color:#fff;padding:12px 26px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-dl:hover{background:#6d28d9}
+.btn-clear{background:#f3f0ff;color:#7c3aed;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer}
+.tip-box{background:#fef3c7;border-left:3px solid #f59e0b;border-radius:8px;padding:11px 14px;font-size:13px;color:#92400e;margin-top:20px;line-height:1.6}
+.error-box{background:#fef2f2;border-left:3px solid #ef4444;border-radius:8px;padding:11px 14px;font-size:13px;color:#991b1b;margin-bottom:16px;display:none}
+.error-box.show{display:block}
+footer{text-align:center;padding:20px;font-size:12px;color:#7c3aed;border-top:1px solid #ede9fe;margin-top:40px}
+footer a{color:#7c3aed;text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="../">Image<span>Craft</span></a>
+  <span class="breadcrumb">› Background Remover</span>
+</nav>
+
+<div class="container">
+  <h1>Remove Image Background — Free</h1>
+  <p class="subtitle">AI removes background in seconds. Runs entirely in your browser — your image is never uploaded anywhere.</p>
+
+  <div class="upload-zone" id="drop-zone">
+    <div class="up-icon">🖼️</div>
+    <div class="up-title">Drop your image here</div>
+    <div class="up-sub">PNG, JPG, WebP — up to 10 MB</div>
+    <button class="upload-btn" onclick="document.getElementById('file-input').click()">Choose Image</button>
+  </div>
+  <input type="file" id="file-input" accept="image/png,image/jpeg,image/webp,image/gif">
+
+  <div class="error-box" id="error-box"></div>
+
+  <div class="status-bar" id="status-bar">
+    <div class="spinner"></div>
+    <div>
+      <div class="status-text" id="status-text">Loading AI model… (first run ~5 seconds)</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+  </div>
+
+  <div id="result-section" style="display:none">
+    <div class="result-grid">
+      <div class="img-panel">
+        <div class="panel-label">Original</div>
+        <div class="img-wrap"><img id="original-img" src="" alt="Original"></div>
+      </div>
+      <div class="img-panel">
+        <div class="panel-label">Background Removed</div>
+        <div class="img-wrap checkerboard"><img id="result-img" src="" alt="Result"></div>
+      </div>
+    </div>
+    <div class="actions">
+      <a id="dl-btn" class="btn-dl" download="imagecraft-nobg.png">⬇ Download PNG</a>
+      <button class="btn-clear" onclick="reset()">Try another image</button>
+    </div>
+    <div class="tip-box">💡 The transparent areas show as checkered — that's correct. When you download the PNG and place it on any background, those areas will be see-through.</div>
+  </div>
+
+  <div class="tip-box" style="margin-top:24px" id="privacy-tip">
+    🔒 <strong>Completely private.</strong> The AI model downloads to your browser once (~40 MB), then processes images locally. Nothing is sent to any server.
+  </div>
+</div>
+
+<footer>
+  <a href="../">← All ImageCraft Tools</a> · <a href="https://nxtcraft.github.io/">NxtCraft</a>
+</footer>
+
+<script type="module">
+let removeBackground;
+
+async function loadLib() {
+  const mod = await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/background-removal.bundle.mjs');
+  removeBackground = mod.removeBackground;
+}
+
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const statusBar = document.getElementById('status-bar');
+const statusText = document.getElementById('status-text');
+const progressFill = document.getElementById('progress-fill');
+const resultSection = document.getElementById('result-section');
+const originalImg = document.getElementById('original-img');
+const resultImg = document.getElementById('result-img');
+const dlBtn = document.getElementById('dl-btn');
+const errorBox = document.getElementById('error-box');
+const privacyTip = document.getElementById('privacy-tip');
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+
+async function handleFile(file) {
+  if (!file || !file.type.startsWith('image/')) return showError('Please select a valid image file (PNG, JPG, WebP).');
+  if (file.size > 10 * 1024 * 1024) return showError('Image too large. Max 10 MB.');
+
+  clearError();
+  dropZone.style.display = 'none';
+  privacyTip.style.display = 'none';
+  statusBar.classList.add('show');
+  resultSection.style.display = 'none';
+
+  const url = URL.createObjectURL(file);
+  originalImg.src = url;
+
+  try {
+    if (!removeBackground) {
+      setStatus('Loading AI model… (first run ~10 seconds)', 10);
+      await loadLib();
+    }
+
+    setStatus('Removing background…', 40);
+
+    const config = {
+      publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/',
+      debug: false,
+      proxyToWorker: true,
+      progress: (key, current, total) => {
+        if (total > 0) {
+          const pct = Math.round((current / total) * 100);
+          setStatus(`Processing… ${pct}%`, Math.max(40, pct * 0.6));
+        }
+      }
+    };
+
+    setStatus('AI is removing background…', 60);
+    const blob = await removeBackground(file, config);
+    const resultUrl = URL.createObjectURL(blob);
+
+    resultImg.src = resultUrl;
+    dlBtn.href = resultUrl;
+    dlBtn.download = file.name.replace(/\.[^.]+$/, '') + '-no-bg.png';
+
+    setStatus('Done!', 100);
+    setTimeout(() => {
+      statusBar.classList.remove('show');
+      resultSection.style.display = 'block';
+    }, 600);
+
+  } catch (err) {
+    console.error(err);
+    showError('Something went wrong removing the background. Try a different image or reload the page.');
+    dropZone.style.display = '';
+  }
+}
+
+function setStatus(text, pct) {
+  statusText.textContent = text;
+  progressFill.style.width = pct + '%';
+}
+
+function showError(msg) {
+  statusBar.classList.remove('show');
+  errorBox.textContent = msg;
+  errorBox.classList.add('show');
+  dropZone.style.display = '';
+}
+
+function clearError() {
+  errorBox.classList.remove('show');
+}
+
+window.reset = function() {
+  resultSection.style.display = 'none';
+  dropZone.style.display = '';
+  privacyTip.style.display = '';
+  fileInput.value = '';
+  progressFill.style.width = '0%';
+};
+
+// Preload lib in background
+setTimeout(loadLib, 1500);
+</script>
+</body>
+</html>

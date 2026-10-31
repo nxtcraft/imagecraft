@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compress Image Free Online — Reduce Image Size | ImageCraft</title>
+<meta name="description" content="Compress JPG, PNG, and WebP images online for free. Reduce file size without visible quality loss. Runs in your browser — no upload needed.">
+<meta name="keywords" content="compress image online free, reduce image size, image compressor, jpg compress, png compress, photo size reduce, image file size reducer">
+<link rel="canonical" href="https://nxtcraft.github.io/imagecraft/compress/">
+<meta property="og:title" content="Free Image Compressor — Reduce File Size Instantly">
+<meta property="og:type" content="website">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',sans-serif;background:#faf5ff;color:#1e1b4b;min-height:100vh}
+nav{background:#fff;border-bottom:1px solid #ede9fe;padding:0 20px;height:54px;display:flex;align-items:center;gap:12px}
+.logo{font-size:18px;font-weight:800;color:#1e1b4b;text-decoration:none}.logo span{color:#7c3aed}
+.breadcrumb{font-size:12px;color:#7c3aed}
+.container{max-width:840px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:24px;font-weight:800;margin-bottom:6px}
+.subtitle{font-size:14px;color:#6b7280;margin-bottom:24px}
+.upload-zone{border:2.5px dashed #c4b5fd;border-radius:18px;padding:52px 24px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;margin-bottom:24px}
+.upload-zone:hover,.upload-zone.drag{border-color:#7c3aed;background:#f5f3ff}
+.up-icon{font-size:44px;margin-bottom:12px}
+.up-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.up-sub{font-size:13px;color:#9ca3af}
+#file-input{display:none}
+.upload-btn{display:inline-block;margin-top:14px;background:#7c3aed;color:#fff;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.card{background:#fff;border-radius:14px;border:1.5px solid #ede9fe;padding:20px 22px;margin-bottom:16px}
+.card-title{font-size:13px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.quality-row{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.quality-row label{font-size:14px;font-weight:600;min-width:60px}
+input[type=range]{flex:1;accent-color:#7c3aed;height:4px}
+.quality-val{font-size:16px;font-weight:800;color:#7c3aed;min-width:40px;text-align:right}
+.format-row{display:flex;gap:8px;flex-wrap:wrap}
+.fmt-btn{padding:7px 16px;border-radius:8px;border:1.5px solid #ede9fe;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:#6b7280;transition:all .15s}
+.fmt-btn.active{border-color:#7c3aed;color:#7c3aed;background:#f5f3ff}
+.stats-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-bottom:16px}
+.stat-box{background:#f5f3ff;border-radius:10px;padding:14px;text-align:center}
+.stat-label{font-size:11px;color:#9ca3af;font-weight:600;text-transform:uppercase;margin-bottom:4px}
+.stat-val{font-size:20px;font-weight:800}
+.stat-val.green{color:#16a34a}
+.arrow-box{text-align:center;font-size:22px;color:#7c3aed}
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media(max-width:560px){.preview-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr}}
+.img-panel{border-radius:12px;overflow:hidden;border:1.5px solid #ede9fe;background:#fff}
+.panel-label{font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;padding:8px 12px;border-bottom:1px solid #f3f0ff}
+.img-panel img{width:100%;max-height:280px;object-fit:contain;display:block;padding:10px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-dl{background:#7c3aed;color:#fff;padding:12px 26px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-dl:hover{background:#6d28d9}
+.btn-clear{background:#f3f0ff;color:#7c3aed;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer}
+footer{text-align:center;padding:20px;font-size:12px;color:#7c3aed;border-top:1px solid #ede9fe;margin-top:40px}
+footer a{color:#7c3aed;text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="../">Image<span>Craft</span></a>
+  <span class="breadcrumb">› Image Compressor</span>
+</nav>
+
+<div class="container">
+  <h1>Image Compressor — Free</h1>
+  <p class="subtitle">Reduce image file size without visible quality loss. Works entirely in your browser.</p>
+
+  <div class="upload-zone" id="drop-zone">
+    <div class="up-icon">🗜️</div>
+    <div class="up-title">Drop image here</div>
+    <div class="up-sub">JPG, PNG, WebP — up to 20 MB</div>
+    <button class="upload-btn" onclick="document.getElementById('file-input').click()">Choose Image</button>
+  </div>
+  <input type="file" id="file-input" accept="image/*">
+
+  <div id="controls" style="display:none">
+    <div class="card">
+      <div class="card-title">Compression Settings</div>
+      <div class="quality-row">
+        <label>Quality</label>
+        <input type="range" id="quality" min="10" max="100" value="80" oninput="updateQuality()">
+        <div class="quality-val" id="q-val">80%</div>
+      </div>
+      <div style="font-size:12px;color:#9ca3af;margin-bottom:14px;margin-left:74px">← More compression &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Better quality →</div>
+      <div class="card-title" style="margin-top:4px">Output Format</div>
+      <div class="format-row">
+        <button class="fmt-btn active" data-fmt="image/jpeg" onclick="setFmt(this)">JPG</button>
+        <button class="fmt-btn" data-fmt="image/webp" onclick="setFmt(this)">WebP</button>
+        <button class="fmt-btn" data-fmt="image/png" onclick="setFmt(this)">PNG (lossless)</button>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-label">Original</div>
+        <div class="stat-val" id="orig-size">—</div>
+      </div>
+      <div class="arrow-box">→</div>
+      <div class="stat-box">
+        <div class="stat-label">Compressed</div>
+        <div class="stat-val green" id="new-size">—</div>
+      </div>
+    </div>
+    <div style="text-align:center;font-size:13px;color:#16a34a;font-weight:700;margin-bottom:16px" id="saving-label"></div>
+
+    <div class="preview-grid">
+      <div class="img-panel">
+        <div class="panel-label">Original</div>
+        <img id="orig-img" src="" alt="Original">
+      </div>
+      <div class="img-panel">
+        <div class="panel-label">Compressed</div>
+        <img id="result-img" src="" alt="Compressed">
+      </div>
+    </div>
+
+    <div class="actions">
+      <a id="dl-btn" class="btn-dl" download="imagecraft-compressed.jpg">⬇ Download Compressed</a>
+      <button class="btn-clear" onclick="reset()">New image</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="../">← All ImageCraft Tools</a> · <a href="https://nxtcraft.github.io/">NxtCraft</a>
+</footer>
+
+<script>
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const controls = document.getElementById('controls');
+let origFile, origImg = new Image(), canvas = document.createElement('canvas');
+let fmt = 'image/jpeg';
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+
+function handleFile(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  origFile = file;
+  const url = URL.createObjectURL(file);
+  document.getElementById('orig-img').src = url;
+  document.getElementById('orig-size').textContent = fmtSize(file.size);
+  origImg.onload = () => { dropZone.style.display = 'none'; controls.style.display = ''; compress(); };
+  origImg.src = url;
+}
+
+function compress() {
+  canvas.width = origImg.naturalWidth;
+  canvas.height = origImg.naturalHeight;
+  const ctx = canvas.getContext('2d');
+  if (fmt === 'image/jpeg') { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+  ctx.drawImage(origImg, 0, 0);
+  const quality = parseInt(document.getElementById('quality').value) / 100;
+  const dataUrl = canvas.toDataURL(fmt, fmt === 'image/png' ? 1 : quality);
+  document.getElementById('result-img').src = dataUrl;
+  const dl = document.getElementById('dl-btn');
+  dl.href = dataUrl;
+  const ext = fmt === 'image/jpeg' ? 'jpg' : fmt === 'image/webp' ? 'webp' : 'png';
+  dl.download = (origFile.name.replace(/\.[^.]+$/, '') || 'image') + '-compressed.' + ext;
+  // Estimate compressed size from base64
+  const b64 = dataUrl.split(',')[1] || '';
+  const bytes = Math.round(b64.length * 0.75);
+  document.getElementById('new-size').textContent = fmtSize(bytes);
+  const saving = Math.round((1 - bytes / origFile.size) * 100);
+  document.getElementById('saving-label').textContent = saving > 0 ? `✓ ${saving}% smaller` : 'File size unchanged';
+}
+
+function updateQuality() {
+  document.getElementById('q-val').textContent = document.getElementById('quality').value + '%';
+  compress();
+}
+
+function setFmt(btn) {
+  document.querySelectorAll('.fmt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  fmt = btn.dataset.fmt;
+  compress();
+}
+
+function fmtSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / 1024 / 1024).toFixed(2) + ' MB';
+}
+
+function reset() {
+  controls.style.display = 'none';
+  dropZone.style.display = '';
+  fileInput.value = '';
+}
+</script>
+</body>
+</html>

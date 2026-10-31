@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passport Photo Maker Free — India Passport, US Visa, Aadhaar Photo | ImageCraft</title>
+<meta name="description" content="Make passport photos free online. India passport (35×45mm), US visa (2×2 inch), Aadhaar, driving licence. Print-ready A4 layout with 6 photos.">
+<meta name="keywords" content="passport photo maker free, passport size photo online, passport photo kaise banaye, India passport photo, US visa photo free, passport size photo 35x45, aadhaar photo size">
+<link rel="canonical" href="https://nxtcraft.github.io/imagecraft/passport/">
+<meta property="og:title" content="Free Passport Photo Maker — India, US Visa, UK, Print Layout">
+<meta property="og:type" content="website">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',sans-serif;background:#faf5ff;color:#1e1b4b;min-height:100vh}
+nav{background:#fff;border-bottom:1px solid #ede9fe;padding:0 20px;height:54px;display:flex;align-items:center;gap:12px}
+.logo{font-size:18px;font-weight:800;color:#1e1b4b;text-decoration:none}.logo span{color:#7c3aed}
+.breadcrumb{font-size:12px;color:#7c3aed}
+.container{max-width:920px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:24px;font-weight:800;margin-bottom:6px}
+.subtitle{font-size:14px;color:#6b7280;margin-bottom:24px}
+.upload-zone{border:2.5px dashed #c4b5fd;border-radius:18px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;margin-bottom:20px}
+.upload-zone:hover,.upload-zone.drag{border-color:#7c3aed;background:#f5f3ff}
+.up-icon{font-size:44px;margin-bottom:12px}
+.up-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.up-sub{font-size:13px;color:#9ca3af}
+#file-input{display:none}
+.upload-btn{display:inline-block;margin-top:14px;background:#7c3aed;color:#fff;padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:640px){.layout{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:14px;border:1.5px solid #ede9fe;padding:20px 22px}
+.card-title{font-size:13px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.size-list{display:flex;flex-direction:column;gap:8px}
+.size-btn{padding:10px 14px;border-radius:10px;border:1.5px solid #ede9fe;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:#374151;text-align:left;transition:all .15s}
+.size-btn:hover{border-color:#7c3aed;color:#7c3aed}
+.size-btn.active{border-color:#7c3aed;background:#f5f3ff;color:#7c3aed}
+.size-sub{font-size:11px;color:#9ca3af;font-weight:400;margin-top:1px}
+.crop-area{position:relative;overflow:hidden;background:#e5e7eb;border-radius:12px;margin-bottom:14px;cursor:crosshair;user-select:none}
+#src-canvas{display:block;max-width:100%}
+.crop-box{position:absolute;border:2px solid #7c3aed;box-shadow:0 0 0 9999px rgba(0,0,0,.45);pointer-events:none}
+.crop-handles span{position:absolute;width:10px;height:10px;background:#7c3aed;border-radius:2px}
+.crop-handles span.tl{top:-5px;left:-5px;cursor:nw-resize;pointer-events:all}
+.crop-handles span.br{bottom:-5px;right:-5px;cursor:se-resize;pointer-events:all}
+label.row{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:10px}
+label.row input[type=color]{width:32px;height:32px;border:none;cursor:pointer;border-radius:6px}
+label.row input[type=range]{width:100px;accent-color:#7c3aed}
+.preview-wrap{text-align:center;margin-bottom:14px}
+#preview-canvas{border-radius:8px;border:2px solid #7c3aed;max-width:140px}
+.count-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.count-row label{font-size:13px;font-weight:600}
+.count-row input{width:60px;padding:7px 10px;border:1.5px solid #ede9fe;border-radius:8px;font-size:14px;font-weight:700;text-align:center}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.btn-dl{background:#7c3aed;color:#fff;padding:11px 22px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer}
+.btn-dl:hover{background:#6d28d9}
+.btn-clear{background:#f3f0ff;color:#7c3aed;padding:11px 18px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer}
+.tip-box{background:#fef3c7;border-left:3px solid #f59e0b;border-radius:8px;padding:10px 14px;font-size:13px;color:#92400e;margin-top:16px;line-height:1.6}
+footer{text-align:center;padding:20px;font-size:12px;color:#7c3aed;border-top:1px solid #ede9fe;margin-top:40px}
+footer a{color:#7c3aed;text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="../">Image<span>Craft</span></a>
+  <span class="breadcrumb">› Passport Photo Maker</span>
+</nav>
+
+<div class="container">
+  <h1>Passport Photo Maker — Free</h1>
+  <p class="subtitle">India passport, US visa, Aadhaar, driving licence. Crop, resize, add white background, download print-ready layout.</p>
+
+  <div class="upload-zone" id="drop-zone">
+    <div class="up-icon">🪪</div>
+    <div class="up-title">Upload your photo</div>
+    <div class="up-sub">Clear face, white/light background recommended</div>
+    <button class="upload-btn" onclick="document.getElementById('file-input').click()">Choose Photo</button>
+  </div>
+  <input type="file" id="file-input" accept="image/*">
+
+  <div id="editor" style="display:none">
+    <div class="layout">
+      <div>
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-title">Select Photo Size</div>
+          <div class="size-list">
+            <button class="size-btn active" data-w="413" data-h="531" onclick="setSize(this)">
+              🇮🇳 India Passport / Aadhaar
+              <div class="size-sub">35 × 45 mm · 413 × 531 px @300dpi</div>
+            </button>
+            <button class="size-btn" data-w="600" data-h="600" onclick="setSize(this)">
+              🇺🇸 US Visa / US Passport
+              <div class="size-sub">2 × 2 inch · 600 × 600 px @300dpi</div>
+            </button>
+            <button class="size-btn" data-w="354" data-h="472" onclick="setSize(this)">
+              🇬🇧 UK Passport
+              <div class="size-sub">35 × 45 mm (UK spec) · 354 × 472 px</div>
+            </button>
+            <button class="size-btn" data-w="240" data-h="320" onclick="setSize(this)">
+              🪪 India Driving Licence
+              <div class="size-sub">20 × 25 mm · 240 × 320 px</div>
+            </button>
+            <button class="size-btn" data-w="150" data-h="150" onclick="setSize(this)">
+              🎓 College / Form Photo
+              <div class="size-sub">Square 150 × 150 px</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Background</div>
+          <label class="row">
+            Background color
+            <input type="color" id="bg-color" value="#ffffff" onchange="renderPreview()">
+          </label>
+          <div class="tip-box">💡 Most passports require <strong>plain white background</strong>. US visas also accept off-white. For Indian passport, no shadows behind the head.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-title">Crop Your Photo</div>
+          <div class="crop-area" id="crop-area">
+            <canvas id="src-canvas"></canvas>
+            <div class="crop-box" id="crop-box">
+              <div class="crop-handles">
+                <span class="tl" id="handle-tl"></span>
+                <span class="br" id="handle-br"></span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:12px;color:#9ca3af;text-align:center">Drag the box to position · drag corners to resize</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Preview</div>
+          <div class="preview-wrap">
+            <canvas id="preview-canvas"></canvas>
+          </div>
+          <div class="card-title" style="margin-top:8px">Print Layout</div>
+          <div class="count-row">
+            <label>Photos per sheet:</label>
+            <input type="number" id="photo-count" value="6" min="1" max="12" onchange="renderPreview()">
+            <span style="font-size:12px;color:#9ca3af">(A4 layout)</span>
+          </div>
+          <div class="actions">
+            <button class="btn-dl" onclick="downloadSingle()">⬇ Download Photo</button>
+            <button class="btn-dl" style="background:#6d28d9" onclick="downloadPrintLayout()">🖨 Print Layout</button>
+            <button class="btn-clear" onclick="reset()">New photo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="../">← All ImageCraft Tools</a> · <a href="https://nxtcraft.github.io/">NxtCraft</a>
+</footer>
+
+<script>
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const editor = document.getElementById('editor');
+const srcCanvas = document.getElementById('src-canvas');
+const cropBox = document.getElementById('crop-box');
+const previewCanvas = document.getElementById('preview-canvas');
+const srcCtx = srcCanvas.getContext('2d');
+const prevCtx = previewCanvas.getContext('2d');
+
+let origImg = new Image(), dispW, dispH;
+let outW = 413, outH = 531;
+let cropX, cropY, cropW, cropH;
+let dragging = false, resizing = false, dragOffX, dragOffY;
+let scale = 1;
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+
+function handleFile(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  const url = URL.createObjectURL(file);
+  origImg.onload = () => {
+    const maxDisp = 340;
+    scale = Math.min(maxDisp / origImg.width, maxDisp / origImg.height, 1);
+    dispW = Math.round(origImg.width * scale);
+    dispH = Math.round(origImg.height * scale);
+    srcCanvas.width = dispW; srcCanvas.height = dispH;
+    srcCtx.drawImage(origImg, 0, 0, dispW, dispH);
+    initCrop();
+    dropZone.style.display = 'none'; editor.style.display = '';
+    renderPreview();
+  };
+  origImg.src = url;
+}
+
+function initCrop() {
+  const ratio = outW / outH;
+  if (dispW / dispH > ratio) {
+    cropH = dispH * 0.9; cropW = cropH * ratio;
+  } else {
+    cropW = dispW * 0.9; cropH = cropW / ratio;
+  }
+  cropX = (dispW - cropW) / 2; cropY = (dispH - cropH) / 2;
+  updateCropBox();
+}
+
+function updateCropBox() {
+  cropBox.style.left = cropX + 'px'; cropBox.style.top = cropY + 'px';
+  cropBox.style.width = cropW + 'px'; cropBox.style.height = cropH + 'px';
+}
+
+const cropArea = document.getElementById('crop-area');
+cropArea.addEventListener('mousedown', onMD);
+cropArea.addEventListener('touchstart', e => onMD(e.touches[0]), {passive:true});
+document.addEventListener('mousemove', onMV);
+document.addEventListener('touchmove', e => onMV(e.touches[0]), {passive:true});
+document.addEventListener('mouseup', onMU);
+document.addEventListener('touchend', onMU);
+
+document.getElementById('handle-br').addEventListener('mousedown', e => { e.stopPropagation(); resizing = true; });
+document.getElementById('handle-br').addEventListener('touchstart', e => { e.stopPropagation(); resizing = true; }, {passive:true});
+document.getElementById('handle-tl').addEventListener('mousedown', e => { e.stopPropagation(); resizing = 'tl'; });
+document.getElementById('handle-tl').addEventListener('touchstart', e => { e.stopPropagation(); resizing = 'tl'; }, {passive:true});
+
+function getPos(e) {
+  const rect = cropArea.getBoundingClientRect();
+  return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+}
+
+function onMD(e) {
+  const p = getPos(e);
+  if (p.x >= cropX && p.x <= cropX + cropW && p.y >= cropY && p.y <= cropY + cropH) {
+    dragging = true; dragOffX = p.x - cropX; dragOffY = p.y - cropY;
+  }
+}
+function onMV(e) {
+  const p = getPos(e);
+  const ratio = outW / outH;
+  if (resizing === true) {
+    let nw = Math.max(30, p.x - cropX), nh = nw / ratio;
+    if (cropX + nw > dispW) { nw = dispW - cropX; nh = nw / ratio; }
+    if (cropY + nh > dispH) { nh = dispH - cropY; nw = nh * ratio; }
+    cropW = nw; cropH = nh;
+    updateCropBox(); renderPreview();
+  } else if (resizing === 'tl') {
+    let nx = Math.max(0, p.x), ny = Math.max(0, p.y);
+    let nw = (cropX + cropW) - nx, nh = nw / ratio;
+    if (nw < 30) { nw = 30; nh = nw / ratio; nx = cropX + cropW - nw; ny = cropY + cropH - nh; }
+    cropX = nx; cropY = (cropY + cropH) - nh; cropW = nw; cropH = nh;
+    updateCropBox(); renderPreview();
+  } else if (dragging) {
+    cropX = Math.max(0, Math.min(dispW - cropW, p.x - dragOffX));
+    cropY = Math.max(0, Math.min(dispH - cropH, p.y - dragOffY));
+    updateCropBox(); renderPreview();
+  }
+}
+function onMU() { dragging = false; resizing = false; }
+
+function setSize(btn) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  outW = parseInt(btn.dataset.w); outH = parseInt(btn.dataset.h);
+  initCrop(); renderPreview();
+}
+
+function renderPreview() {
+  const bg = document.getElementById('bg-color').value;
+  const sx = cropX / scale, sy = cropY / scale, sw = cropW / scale, sh = cropH / scale;
+  const dispSize = 130;
+  const ph = Math.round(dispSize * outH / outW);
+  previewCanvas.width = dispSize; previewCanvas.height = ph;
+  prevCtx.fillStyle = bg; prevCtx.fillRect(0, 0, dispSize, ph);
+  prevCtx.drawImage(origImg, sx, sy, sw, sh, 0, 0, dispSize, ph);
+}
+
+function getPhotoDataUrl() {
+  const bg = document.getElementById('bg-color').value;
+  const sx = cropX / scale, sy = cropY / scale, sw = cropW / scale, sh = cropH / scale;
+  const c = document.createElement('canvas');
+  c.width = outW; c.height = outH;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, outW, outH);
+  ctx.drawImage(origImg, sx, sy, sw, sh, 0, 0, outW, outH);
+  return c.toDataURL('image/jpeg', 0.95);
+}
+
+function downloadSingle() {
+  const a = document.createElement('a'); a.href = getPhotoDataUrl();
+  a.download = 'passport-photo.jpg'; a.click();
+}
+
+function downloadPrintLayout() {
+  const n = Math.max(1, Math.min(12, parseInt(document.getElementById('photo-count').value) || 6));
+  const bg = document.getElementById('bg-color').value;
+  const sx = cropX / scale, sy = cropY / scale, sw = cropW / scale, sh = cropH / scale;
+  // A4 at 300dpi = 2480 × 3508 px, margin 118px (10mm), gap 59px (5mm)
+  const A4W = 2480, A4H = 3508, margin = 118, gap = 59;
+  const cols = 3, rows = Math.ceil(n / cols);
+  const photoW = Math.floor((A4W - 2*margin - (cols-1)*gap) / cols);
+  const photoH = Math.round(photoW * outH / outW);
+  const c = document.createElement('canvas');
+  c.width = A4W; c.height = A4H;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, A4W, A4H);
+  for (let i = 0; i < n; i++) {
+    const col = i % cols, row = Math.floor(i / cols);
+    const x = margin + col * (photoW + gap), y = margin + row * (photoH + gap);
+    ctx.fillStyle = bg; ctx.fillRect(x, y, photoW, photoH);
+    ctx.drawImage(origImg, sx, sy, sw, sh, x, y, photoW, photoH);
+    ctx.strokeStyle = '#ccc'; ctx.lineWidth = 1; ctx.strokeRect(x, y, photoW, photoH);
+  }
+  const a = document.createElement('a'); a.href = c.toDataURL('image/jpeg', 0.95);
+  a.download = 'passport-photo-print-layout.jpg'; a.click();
+}
+
+function reset() {
+  editor.style.display = 'none'; dropZone.style.display = ''; fileInput.value = '';
+}
+</script>
+</body>
+</html>
