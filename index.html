@@ -731,16 +731,28 @@ function loadExamPhoto(input) {
   const file = input.files[0];
   if (!file) return;
   document.getElementById('exam-orig-size').textContent = fmtKB(file.size);
-  const reader = new FileReader();
-  reader.onload = e => {
-    const img = new Image();
-    img.onload = () => { examImg = img; processExamPhoto(); };
-    img.src = e.target.result;
-    document.getElementById('exam-orig').src = e.target.result;
+  // createImageBitmap with imageOrientation:'from-image' handles EXIF rotation
+  // so mobile photos taken portrait/landscape render correctly on canvas
+  createImageBitmap(file, { imageOrientation: 'from-image' }).then(bmp => {
+    examImg = bmp;
+    const url = URL.createObjectURL(file);
+    document.getElementById('exam-orig').src = url;
     document.getElementById('exam-zone').style.display = 'none';
     document.getElementById('exam-results').style.display = '';
-  };
-  reader.readAsDataURL(file);
+    processExamPhoto();
+  }).catch(() => {
+    // fallback for browsers without createImageBitmap support
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => { examImg = img; processExamPhoto(); };
+      img.src = e.target.result;
+      document.getElementById('exam-orig').src = e.target.result;
+      document.getElementById('exam-zone').style.display = 'none';
+      document.getElementById('exam-results').style.display = '';
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 function getExamDims() {
@@ -754,6 +766,18 @@ function getExamDims() {
   return examPreset;
 }
 
+// Binary search over JPEG quality [lo,hi] to find largest quality that fits maxKB.
+// Converges in ≤7 iterations vs up to 13 for linear 0.05 steps.
+function binaryQuality(canvas, maxKB, lo = 0.05, hi = 0.95) {
+  if (b64KB(canvas.toDataURL('image/jpeg', hi)) <= maxKB) return hi;
+  if (b64KB(canvas.toDataURL('image/jpeg', lo)) > maxKB) return lo;
+  for (let i = 0; i < 7; i++) {
+    const mid = (lo + hi) / 2;
+    if (b64KB(canvas.toDataURL('image/jpeg', mid)) <= maxKB) lo = mid; else hi = mid;
+  }
+  return lo;
+}
+
 function processExamPhoto() {
   if (!examImg) return;
   const {w, h, maxKB} = getExamDims();
@@ -762,19 +786,17 @@ function processExamPhoto() {
   const ctx = canvas.getContext('2d');
   ctx.fillStyle = '#fff';
   ctx.fillRect(0,0,w,h);
-  // cover crop
-  const aspect = examImg.width / examImg.height;
+  // cover crop — works with both HTMLImageElement and ImageBitmap
+  const srcW = examImg.width, srcH = examImg.height;
+  const aspect = srcW / srcH;
   const targetAspect = w / h;
-  let sx=0,sy=0,sw=examImg.width,sh=examImg.height;
-  if (aspect > targetAspect) { sw = examImg.height * targetAspect; sx = (examImg.width - sw)/2; }
-  else { sh = examImg.width / targetAspect; sy = (examImg.height - sh)/2; }
+  let sx=0,sy=0,sw=srcW,sh=srcH;
+  if (aspect > targetAspect) { sw = srcH * targetAspect; sx = (srcW - sw)/2; }
+  else { sh = srcW / targetAspect; sy = (srcH - sh)/2; }
   ctx.drawImage(examImg, sx, sy, sw, sh, 0, 0, w, h);
 
-  // Compress to fit maxKB
-  let quality = 0.92;
-  let dataUrl = canvas.toDataURL('image/jpeg', quality);
-  while (b64KB(dataUrl) > maxKB && quality > 0.3) { quality -= 0.05; dataUrl = canvas.toDataURL('image/jpeg', quality); }
-
+  const quality = binaryQuality(canvas, maxKB);
+  const dataUrl = canvas.toDataURL('image/jpeg', quality);
   const kb = b64KB(dataUrl);
   document.getElementById('exam-out-size').textContent = kb + ' KB';
   document.getElementById('exam-result-label').textContent = w + '×' + h + ' px · ' + kb + ' KB';
@@ -792,11 +814,10 @@ function fmtKB(bytes) { return Math.round(bytes/1024) + ' KB'; }
 function downloadExamPhoto() {
   const canvas = document.getElementById('exam-canvas');
   const {w,h,maxKB} = getExamDims();
-  let q = 0.92;
-  let url = canvas.toDataURL('image/jpeg', q);
-  while (b64KB(url) > maxKB && q > 0.3) { q -= 0.05; url = canvas.toDataURL('image/jpeg', q); }
+  const q = binaryQuality(canvas, maxKB);
   const a = document.createElement('a');
-  a.href = url; a.download = 'exam-photo-' + w + 'x' + h + '.jpg'; a.click();
+  a.href = canvas.toDataURL('image/jpeg', q);
+  a.download = 'exam-photo-' + w + 'x' + h + '.jpg'; a.click();
 }
 
 // Signature resizer
@@ -816,9 +837,9 @@ function loadSigPhoto(input) {
       const dw = img.width*scale, dh = img.height*scale;
       const dx = (140-dw)/2, dy = (60-dh)/2;
       ctx.drawImage(img, dx, dy, dw, dh);
-      let q = 0.92, url = canvas.toDataURL('image/jpeg', q);
-      while (b64KB(url) > 30 && q > 0.3) { q -= 0.05; url = canvas.toDataURL('image/jpeg', q); }
-      document.getElementById('sig-size').textContent = '140×60 px · ' + b64KB(url) + ' KB (max 30 KB)';
+      const sigQ = binaryQuality(canvas, 30);
+      const sigUrl = canvas.toDataURL('image/jpeg', sigQ);
+      document.getElementById('sig-size').textContent = '140×60 px · ' + b64KB(sigUrl) + ' KB (max 30 KB)';
       document.getElementById('sig-results').style.display = '';
     };
     img.src = e.target.result;
