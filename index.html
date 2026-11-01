@@ -4,6 +4,9 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9EW10BJGW"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-R9EW10BJGW");</script>
 <meta charset="UTF-8">
+<link rel="manifest" href="/imagecraft/manifest.json">
+<meta name="theme-color" content="#a855f7">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ImgLab — Free Online Image Tools | Background Remover, Compressor, Resizer, Converter, Passport Photo</title>
 <meta name="description" content="Free image tools in one place: Remove background, compress, resize, convert format, make passport photos. All run in your browser — no upload, no signup.">
@@ -614,5 +617,6 @@ function ppDownloadPrint(){
 }
 function ppReset(){document.getElementById('pp-editor').style.display='none';document.getElementById('pp-drop').style.display='';document.getElementById('pp-file').value='';}
 </script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("/imagecraft/sw.js");</script>
 </body>
 </html>
