@@ -9,8 +9,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ImgLab — Free Online Image Tools | Background Remover, Compressor, Resizer, Converter, Passport Photo</title>
-<meta name="description" content="Free image tools in one place: Remove background, compress, resize, convert format, make passport photos. All run in your browser — no upload, no signup.">
-<meta name="keywords" content="remove background free, image compressor online, image resizer, convert image format, passport photo maker, background remover, photo editor online free">
+<meta name="description" content="Free image tools: Remove background, compress, resize, convert, make passport photos and resize exam photos for SSC, UPSC, IBPS, SBI, RRB. All in browser — no upload, no signup.">
+<meta name="keywords" content="remove background free, image compressor online, image resizer, convert image format, passport photo maker, background remover, exam photo resize SSC UPSC IBPS, ssc photo size reducer online, upsc photo resize free, ibps photo signature resize, exam photo resizer india, government exam photo size">
 <link rel="canonical" href="https://nxtcraft.github.io/imglab/">
 <meta property="og:title" content="ImgLab — 5 Free Image Tools in One Place">
 <meta property="og:description" content="Background remover, compressor, resizer, converter, passport photo maker — all free, all in your browser.">
@@ -127,6 +127,7 @@ footer a{color:#7c3aed;text-decoration:none}
   <div class="tab" onclick="switchTab('resize',this)">↔️ Resize</div>
   <div class="tab" onclick="switchTab('convert',this)">🔄 Convert</div>
   <div class="tab" onclick="switchTab('passport',this)">🪪 Passport Photo</div>
+  <div class="tab" onclick="switchTab('exam',this)">📋 Exam Photo</div>
 </div>
 
 <!-- BG REMOVE -->
@@ -355,6 +356,90 @@ footer a{color:#7c3aed;text-decoration:none}
   </div>
 </div>
 
+<!-- EXAM PHOTO PANEL -->
+<div id="panel-exam" class="tool-panel">
+  <h2>📋 Exam Photo & Signature Resizer</h2>
+  <p class="subtitle">SSC, UPSC, IBPS, SBI, RRB, GATE — preset dimensions, exact file size. Your photo never leaves your device.</p>
+
+  <div class="card">
+    <div class="card-title">Select Exam</div>
+    <div class="presets" id="exam-presets">
+      <button class="preset-btn active" onclick="setExamPreset('ssc',this)" data-w="100" data-h="120" data-maxkb="50">SSC CGL/CHSL</button>
+      <button class="preset-btn" onclick="setExamPreset('upsc',this)" data-w="200" data-h="230" data-maxkb="40">UPSC Civil Services</button>
+      <button class="preset-btn" onclick="setExamPreset('ibps',this)" data-w="200" data-h="230" data-maxkb="50">IBPS PO/Clerk</button>
+      <button class="preset-btn" onclick="setExamPreset('sbi',this)" data-w="200" data-h="230" data-maxkb="50">SBI PO/Clerk</button>
+      <button class="preset-btn" onclick="setExamPreset('rrb',this)" data-w="200" data-h="230" data-maxkb="40">RRB NTPC</button>
+      <button class="preset-btn" onclick="setExamPreset('gate',this)" data-w="240" data-h="320" data-maxkb="80">GATE/IIT-JEE</button>
+      <button class="preset-btn" onclick="setExamPreset('cat',this)" data-w="200" data-h="240" data-maxkb="80">CAT/XAT/MAT</button>
+      <button class="preset-btn" onclick="setExamPreset('neet',this)" data-w="200" data-h="230" data-maxkb="50">NEET/JEE</button>
+      <button class="preset-btn" onclick="setExamPreset('custom',this)" data-w="200" data-h="200" data-maxkb="100">Custom</button>
+    </div>
+
+    <div id="exam-req" style="background:#f5f3ff;border:1.5px solid #ede9fe;border-radius:10px;padding:12px 16px;font-size:13px;margin-bottom:16px;">
+      <span id="exam-req-text" style="color:#5b21b6;font-weight:600;"></span>
+    </div>
+
+    <div id="exam-custom-opts" style="display:none;">
+      <div class="dim-row" style="margin-bottom:12px;">
+        <label>Width (px)</label>
+        <input type="number" id="exam-w" value="200" min="50" max="800">
+        <label style="margin-left:10px;">Height (px)</label>
+        <input type="number" id="exam-h" value="230" min="50" max="800">
+        <label style="margin-left:10px;">Max KB</label>
+        <input type="number" id="exam-maxkb" value="100" min="5" max="500">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Photo</div>
+    <div class="upload-zone" onclick="document.getElementById('exam-input').click()" id="exam-zone">
+      <div class="up-icon">📷</div>
+      <div class="up-title">Upload Your Photo</div>
+      <div class="up-sub">JPG, PNG — click or drag & drop</div>
+      <input type="file" id="exam-input" accept="image/*" style="display:none" onchange="loadExamPhoto(this)">
+    </div>
+    <div id="exam-results" style="display:none;">
+      <div class="result-grid">
+        <div class="img-panel">
+          <div class="panel-label">Original</div>
+          <div class="img-wrap"><img id="exam-orig" style="max-height:200px;"></div>
+        </div>
+        <div class="img-panel">
+          <div class="panel-label" id="exam-result-label">Resized</div>
+          <div class="img-wrap"><canvas id="exam-canvas" style="max-width:100%;max-height:200px;border-radius:6px;"></canvas></div>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-label">Original Size</div><div class="stat-val" id="exam-orig-size">—</div></div>
+        <div style="text-align:center;font-size:20px;color:#7c3aed;">→</div>
+        <div class="stat-box"><div class="stat-label">Output Size</div><div class="stat-val g" id="exam-out-size">—</div></div>
+      </div>
+      <div id="exam-warn" style="display:none;background:#fef3c7;border:1.5px solid #f59e0b;border-radius:10px;padding:12px;font-size:13px;color:#92400e;margin-bottom:12px;"></div>
+      <div class="actions">
+        <button class="btn-primary" onclick="downloadExamPhoto()">⬇️ Download Photo</button>
+        <button class="btn-sec" onclick="document.getElementById('exam-input').click()">🔄 Change Photo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Signature Resizer</div>
+    <p style="font-size:12px;color:#6b7280;margin-bottom:12px;">Most exams require signature: 140×60 px, max 30 KB, white background, JPG.</p>
+    <div class="upload-zone" onclick="document.getElementById('sig-input').click()" style="padding:24px 20px;">
+      <div class="up-icon" style="font-size:28px;">✍️</div>
+      <div class="up-title" style="font-size:13px;">Upload Signature Image</div>
+      <div class="up-sub">JPG, PNG — click to upload</div>
+      <input type="file" id="sig-input" accept="image/*" style="display:none" onchange="loadSigPhoto(this)">
+    </div>
+    <div id="sig-results" style="display:none;margin-top:12px;">
+      <canvas id="sig-canvas" style="max-width:100%;border:1px solid #ede9fe;border-radius:6px;display:block;margin-bottom:12px;"></canvas>
+      <div id="sig-size" style="font-size:12px;color:#6b7280;margin-bottom:10px;"></div>
+      <button class="btn-primary" onclick="downloadSig()">⬇️ Download Signature</button>
+    </div>
+  </div>
+</div>
+
 <footer><a href="https://nxtcraft.github.io/">NxtCraft Free Tools</a> · Your images never leave your device</footer>
 
 <script>
@@ -368,7 +453,7 @@ function switchTab(id,el){
 }
 (function(){
   const h=location.hash.slice(1);
-  const map={'bg':0,'compress':1,'resize':2,'convert':3,'passport':4};
+  const map={'bg':0,'compress':1,'resize':2,'convert':3,'passport':4,'exam':5};
   if(h in map){const tabs=document.querySelectorAll('.tab');switchTab(h,tabs[map[h]]);}
 })();
 
@@ -616,6 +701,139 @@ function ppDownloadPrint(){
   const a=document.createElement('a');a.href=c.toDataURL('image/jpeg',.95);a.download='passport-print-layout.jpg';a.click();
 }
 function ppReset(){document.getElementById('pp-editor').style.display='none';document.getElementById('pp-drop').style.display='';document.getElementById('pp-file').value='';}
+
+// ── EXAM PHOTO ──
+const EXAM_PRESETS = {
+  ssc:    {w:100,h:120,maxKB:50,label:'SSC CGL/CHSL: 100×120 px, max 50 KB, JPG'},
+  upsc:   {w:200,h:230,maxKB:40,label:'UPSC Civil Services: 200×230 px, max 40 KB, JPG'},
+  ibps:   {w:200,h:230,maxKB:50,label:'IBPS PO/Clerk: 200×230 px, max 50 KB, JPG'},
+  sbi:    {w:200,h:230,maxKB:50,label:'SBI PO/Clerk: 200×230 px, max 50 KB, JPG'},
+  rrb:    {w:200,h:230,maxKB:40,label:'RRB NTPC: 200×230 px, max 40 KB, JPG'},
+  gate:   {w:240,h:320,maxKB:80,label:'GATE / IIT-JEE: 240×320 px, max 80 KB, JPG'},
+  cat:    {w:200,h:240,maxKB:80,label:'CAT/XAT/MAT: 200×240 px, max 80 KB, JPG'},
+  neet:   {w:200,h:230,maxKB:50,label:'NEET/JEE: 200×230 px, max 50 KB, JPG'},
+  custom: {w:200,h:200,maxKB:100,label:'Custom dimensions'},
+};
+let examPreset = EXAM_PRESETS.ssc;
+let examImg = null;
+
+function setExamPreset(key, btn) {
+  document.querySelectorAll('#exam-presets .preset-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  examPreset = EXAM_PRESETS[key];
+  document.getElementById('exam-req-text').textContent = examPreset.label;
+  const isCustom = key === 'custom';
+  document.getElementById('exam-custom-opts').style.display = isCustom ? '' : 'none';
+  if (examImg) processExamPhoto();
+}
+
+function loadExamPhoto(input) {
+  const file = input.files[0];
+  if (!file) return;
+  document.getElementById('exam-orig-size').textContent = fmtKB(file.size);
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => { examImg = img; processExamPhoto(); };
+    img.src = e.target.result;
+    document.getElementById('exam-orig').src = e.target.result;
+    document.getElementById('exam-zone').style.display = 'none';
+    document.getElementById('exam-results').style.display = '';
+  };
+  reader.readAsDataURL(file);
+}
+
+function getExamDims() {
+  if (document.getElementById('exam-custom-opts').style.display !== 'none') {
+    return {
+      w: parseInt(document.getElementById('exam-w').value)||200,
+      h: parseInt(document.getElementById('exam-h').value)||230,
+      maxKB: parseInt(document.getElementById('exam-maxkb').value)||100
+    };
+  }
+  return examPreset;
+}
+
+function processExamPhoto() {
+  if (!examImg) return;
+  const {w, h, maxKB} = getExamDims();
+  const canvas = document.getElementById('exam-canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0,0,w,h);
+  // cover crop
+  const aspect = examImg.width / examImg.height;
+  const targetAspect = w / h;
+  let sx=0,sy=0,sw=examImg.width,sh=examImg.height;
+  if (aspect > targetAspect) { sw = examImg.height * targetAspect; sx = (examImg.width - sw)/2; }
+  else { sh = examImg.width / targetAspect; sy = (examImg.height - sh)/2; }
+  ctx.drawImage(examImg, sx, sy, sw, sh, 0, 0, w, h);
+
+  // Compress to fit maxKB
+  let quality = 0.92;
+  let dataUrl = canvas.toDataURL('image/jpeg', quality);
+  while (b64KB(dataUrl) > maxKB && quality > 0.3) { quality -= 0.05; dataUrl = canvas.toDataURL('image/jpeg', quality); }
+
+  const kb = b64KB(dataUrl);
+  document.getElementById('exam-out-size').textContent = kb + ' KB';
+  document.getElementById('exam-result-label').textContent = w + '×' + h + ' px · ' + kb + ' KB';
+  const warn = document.getElementById('exam-warn');
+  if (kb > maxKB) {
+    warn.style.display = ''; warn.textContent = '⚠️ Could not compress to under ' + maxKB + ' KB. Try uploading a lower resolution photo.';
+  } else {
+    warn.style.display = 'none';
+  }
+}
+
+function b64KB(dataUrl) { return Math.round((dataUrl.length - dataUrl.indexOf(',') - 1) * 3/4 / 1024); }
+function fmtKB(bytes) { return Math.round(bytes/1024) + ' KB'; }
+
+function downloadExamPhoto() {
+  const canvas = document.getElementById('exam-canvas');
+  const {w,h,maxKB} = getExamDims();
+  let q = 0.92;
+  let url = canvas.toDataURL('image/jpeg', q);
+  while (b64KB(url) > maxKB && q > 0.3) { q -= 0.05; url = canvas.toDataURL('image/jpeg', q); }
+  const a = document.createElement('a');
+  a.href = url; a.download = 'exam-photo-' + w + 'x' + h + '.jpg'; a.click();
+}
+
+// Signature resizer
+function loadSigPhoto(input) {
+  const file = input.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.getElementById('sig-canvas');
+      canvas.width = 140; canvas.height = 60;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0,0,140,60);
+      // fit inside, preserve aspect
+      const scale = Math.min(140/img.width, 60/img.height);
+      const dw = img.width*scale, dh = img.height*scale;
+      const dx = (140-dw)/2, dy = (60-dh)/2;
+      ctx.drawImage(img, dx, dy, dw, dh);
+      let q = 0.92, url = canvas.toDataURL('image/jpeg', q);
+      while (b64KB(url) > 30 && q > 0.3) { q -= 0.05; url = canvas.toDataURL('image/jpeg', q); }
+      document.getElementById('sig-size').textContent = '140×60 px · ' + b64KB(url) + ' KB (max 30 KB)';
+      document.getElementById('sig-results').style.display = '';
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function downloadSig() {
+  const a = document.createElement('a');
+  a.href = document.getElementById('sig-canvas').toDataURL('image/jpeg',.92);
+  a.download = 'signature-140x60.jpg'; a.click();
+}
+
+// Init exam presets
+document.getElementById('exam-req-text').textContent = EXAM_PRESETS.ssc.label;
 </script>
 <script>if("serviceWorker"in navigator)navigator.serviceWorker.register("/imagecraft/sw.js");</script>
 </body>
